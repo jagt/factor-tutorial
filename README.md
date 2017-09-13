@@ -513,7 +513,7 @@ Our aim is to read a sequence of letters a, c, g, t - possibly with spaces - and
 
 Our syntax for DNA will start with `DNA{` and get all tokens until the closing token `}` is found. The intermediate tokens will be put into a string, and using our function `dna>bits` we will map this string into a bit array. To read tokens, we will use the word `parse-tokens`. There are a few higher-level words to interact with the parser, such as `parse-until` and `parse-literal`, but we cannot apply them in our case, since the tokens we will find are just sequences of a c g t, instead of valid Factor words. Let us start with a simple approximation that just reads tokens between our delimiters and outputs the string obtained by concatenation
 
-    SYNTAX: DNA{ "}" parse-tokens concat suffix!
+    SYNTAX: DNA{ "}" parse-tokens concat suffix! ;
 
 You can test the effect by doing `DNA{ a ccg t a g }`, which should output `"accgtag"`. As a second approximation, we transform each letter into a boolean pair:
 
